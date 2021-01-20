@@ -48,15 +48,13 @@ def update():
         lasers.remove(laser)
       else:
         laser.y -= 10
-    moveDown = False
-   
-    if enemies[-1].x > WIDTH-80 or enemies[0].x < 50:
-      moveDown = True
-      direction = direction*-1
+  
     for enemy in enemies:
-      enemy.x += 5*direction
-      if moveDown == True:
-        enemy.y += 80
+      enemy.y += 10
+      if enemy.y > HEIGHT + 60:
+        enemy.y = 100
+        enemy.x = random.randint(40,WIDTH-40)
+    
       for laser in lasers:
         if enemy.colliderect(laser):
           score += 150
