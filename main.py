@@ -16,7 +16,7 @@ enemies = []
 for x in range(8):
   enemies.append(Actor('alien1'))
   enemies[-1].x = 100 + 90*x
-  enemies[-1].y = 80
+  enemies[-1].y = -100
 
 
 score = 0
