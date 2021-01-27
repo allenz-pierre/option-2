@@ -7,7 +7,7 @@ HEIGHT = 800
 shooter = Actor('player')
 shooter.x = WIDTH//2
 shooter.y = HEIGHT-250
-ship.dead = False
+shooter.dead = False
 
 
 lasers = []
@@ -15,7 +15,7 @@ lasers = []
 enemies = []
 
 for x in range(8):
-  for y in range(4):
+  for y in range(2):
     enemies.append(Actor('alien1'))
     enemies[-1].x = 100 + 90*x
     enemies[-1].y = 80 + 80*y
@@ -50,7 +50,6 @@ def update():
       for laser in lasers:
         if laser.y < 20:
          lasers.remove(laser)
-      else:
         laser.y -= 10
   moveDown = False
   if len(enemies)>0 and (enemies[-1].x > WIDTH-80 or enemies[0].x < 50):
@@ -70,12 +69,12 @@ def update():
           enemies.remove(enemy)
       if enemy.colliderect(shooter):
         shooter.dead = True
-        
+
 
 
 def draw():
   screen.clear()
-  if shooter.dead = False:
+  if shooter.dead == False:
     shooter.draw()
   for laser in lasers:
     laser.draw()
